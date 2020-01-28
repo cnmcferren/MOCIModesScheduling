@@ -1,32 +1,29 @@
-import parse
-from stkhelper import application, scenario, satellite, areatarget
+import sys
 
-atDataList = parse.ParseFile('TargetList.csv')
+"""
 
-app = application.Application()
-scene = scenario.Scenario(app, 'Scheduling', '+24hrs')
-sat = satellite.Satellite(scene, 'MOCI', 25544)
+Used to return file containing mode scheduling.
 
-ats = []
-for i in range(len(atDataList)):
-    at = areatarget.AreaTarget(scene,
-                               atDataList[i][0].replace(' ','_').replace('.','').replace('(','').replace(')',''),
-                               atDataList[i][1:4])
-    ats.append(at)
-    
-groundStation = areatarget.AreaTarget(scene,'GroundStation',
-					[(33.9487,-83.3754),(33.9487,-83.3754)])
-groundStation.SetElevationConstraint(25)
+Precedent order:
+    1. Data downlink mode
+    2. Imaging/Data Processing modes
+    3. Cruise mode
 
-ats.append(groundStation)
+Flags:
+    --stk: Run STK sim to calculate access file given a target list
+    --file: Skip STK sim and run using provided access file
 
-outputFile = open('Access.csv','w')
-for i in range(len(ats)):
-    access = sat.GetAccess(ats[i])
-    try:
-        for n in range(len(access)):
-            string = access[n][0] + "," + access[n][1] + "," + ats[i].name + '\n'
-            outputFile.write(string)
-    except Exception:
-        pass
-outputFile.close()
+"""
+
+if __name__=='__main__':
+    #Executed if new STK simulation needs to be run
+    if "--stk" in sys.argv:
+        import stkengine
+        targListName = sys.argv[sys.argv.index("--stk") + 1]
+        stkengine.CalculateAccess(targListName)
+        
+    #Executed if access file is already provided
+    elif "--file" in sys.argv:
+        
+    else:
+        print("Error: please enter valid flags.")

@@ -1,5 +1,17 @@
+"""
 
-def ParseFile(filename):
+Used to parse a target list for computation from MOCI's target list
+
+Parameters:
+        filename(str): Name of the target list file to be parsed.
+        
+Returns:
+        elements(list): Returns a list containing the name and lat/lon
+                        coordinate pairs in the following format:
+                            [(name),(lat0,lon0),...,(lat3,lon3)]
+
+"""
+def ParseTargetList(filename):
     f = open(filename,'r')
     
     lines = f.readlines()
@@ -21,3 +33,4 @@ def ParseFile(filename):
  
     return elements       
     
+def ParseAccess(filename)
