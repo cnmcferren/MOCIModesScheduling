@@ -15,7 +15,7 @@ for i in range(len(atDataList)):
     ats.append(at)
     
 groundStation = areatarget.AreaTarget(scene,'GroundStation',
-                                      [(33.9487,-83.3754)])
+					[(33.9487,-83.3754),(33.9487,-83.3754)])
 groundStation.SetElevationConstraint(25)
 
 ats.append(groundStation)
