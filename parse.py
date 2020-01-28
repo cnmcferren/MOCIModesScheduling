@@ -33,4 +33,17 @@ def ParseTargetList(filename):
  
     return elements       
     
-def ParseAccess(filename)
+"""
+
+Used to parse access file
+
+Parameters:
+    filename(str): The access file to be parsed
+    
+Returns:
+    access(list): List of access times
+
+"""
+def ParseAccess(filename):
+    #TODO Add functionallity
+    return 0

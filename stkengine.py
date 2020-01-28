@@ -36,6 +36,7 @@ def CalculateAccess(filename):
 
         ats.append(groundStation)
 
+        #TODO Sort the access times
         outputFile = open('Access.csv','w')
         for i in range(len(ats)):
             access = sat.GetAccess(ats[i])
