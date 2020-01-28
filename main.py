@@ -26,8 +26,7 @@ for i in range(len(ats)):
     try:
     	for n in range(len(access)):
         	string = access[n][0] + "," + access[n][1] + "," + ats[i].name + '\n'
-        	outputFile.write(string)
+            outputFile.write(string)
     except Exception:
-	pass
-        
+        pass
 outputFile.close()
