@@ -24,8 +24,8 @@ outputFile = open('Access.csv','w')
 for i in range(len(ats)):
     access = sat.GetAccess(ats[i])
     try:
-    	for n in range(len(access)):
-        	string = access[n][0] + "," + access[n][1] + "," + ats[i].name + '\n'
+        for n in range(len(access)):
+            string = access[n][0] + "," + access[n][1] + "," + ats[i].name + '\n'
             outputFile.write(string)
     except Exception:
         pass
