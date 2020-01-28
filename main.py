@@ -9,7 +9,8 @@ sat = satellite.Satellite(scene, 'MOCI', 25544)
 
 ats = []
 for i in range(len(atDataList)):
-    at = areatarget.AreaTarget(atDataList[i][0],
+    at = areatarget.AreaTarget(scene,
+                               atDataList[i][0],
                                atDataList[i][1:4])
     ats.append(at)
     
