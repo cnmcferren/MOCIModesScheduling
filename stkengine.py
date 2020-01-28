@@ -49,6 +49,6 @@ def CalculateAccess(filename):
         outputFile.close()
         return 0
         
-    except Exception:
+    except Exception as e:
         print("Error: STK Simulation failed to execute.")
         return 1
