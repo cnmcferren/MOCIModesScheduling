@@ -31,7 +31,7 @@ def CalculateAccess(filename):
             ats.append(at)
     
         groundStation = areatarget.AreaTarget(scene,'GroundStation',
-					[(33.9487,-83.3754),(33.9487,-83.3755),(33.9488,-83.3755)])
+					[(33.9487,-83.3754)])
         groundStation.SetElevationConstraint(25)
 
         ats.append(groundStation)
