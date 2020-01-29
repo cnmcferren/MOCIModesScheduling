@@ -44,7 +44,7 @@ def CalculateAccess(filename):
                 for n in range(len(access)):
                     string = access[n][0] + "," + access[n][1] + "," + ats[i].name + '\n'
                     outputFile.write(string)
-                except Exception:
+                except Exception as e:
                     pass
         outputFile.close()
         return 0
