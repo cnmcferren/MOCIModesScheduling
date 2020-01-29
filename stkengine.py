@@ -30,8 +30,8 @@ def CalculateAccess(filename):
                                atDataList[i][1:4])
             ats.append(at)
     
-        groundStation = areatarget.AreaTarget(scene,'GroundStation',
-					[(33.9487,-83.3754)])
+        groundStation = areatarget.AreaTarget(scene,name='GroundStation',
+					coordList=[(33.9487,-83.3754)],radius=0.001)
         groundStation.SetElevationConstraint(25)
 
         ats.append(groundStation)
