@@ -24,6 +24,6 @@ if __name__=='__main__':
         
     #Executed if access file is already provided
     elif "--file" in sys.argv:
-        
+        print("--file")
     else:
         print("Error: please enter valid flags.")
