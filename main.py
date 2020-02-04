@@ -1,4 +1,5 @@
 import sys
+import toolbox
 
 """
 
@@ -9,21 +10,35 @@ Precedent order:
     2. Imaging/Data Processing modes
     3. Cruise mode
 
-Flags:
-    --stk: Run STK sim to calculate access file given a target list
-    --file: Skip STK sim and run using provided access file
-
 """
-
+"""
 if __name__=='__main__':
-    #Executed if new STK simulation needs to be run
-    if "--stk" in sys.argv:
-        import stkengine
-        targListName = sys.argv[sys.argv.index("--stk") + 1]
-        stkengine.CalculateAccess(targListName)
+    import stkengine
+    targListName = sys.argv[sys.argv.index("--stk") + 1]
+    stkengine.CalculateAccess(targListName)
         
-    #Executed if access file is already provided
-    elif "--file" in sys.argv:
-        print("--file")
-    else:
-        print("Error: please enter valid flags.")
+        
+    
+"""
+def SortAccess(accessFilename, outputFilename):
+    accessFile = open(accessFilename,'r')
+    line = True
+    access = []
+    while line:
+        line = accessFile.readline()
+        if line != '':
+            access.append(line.split(','))
+
+    sortedAccess = toolbox.Toolbox.SortAllAccess(access)
+    outputFile = open(outputFilename,'w')
+    for line in sortedAccess:
+        for i in range (len(line)):
+            if i != len(line) -1:
+                line[i] += ","
+            outputFile.write(line[i])
+        
+    accessFile.close()
+    outputFile.close()
+    
+if __name__=="__main__":
+    SortAccess("Access.csv","SortedAccess.csv")
