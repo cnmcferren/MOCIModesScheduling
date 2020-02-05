@@ -11,14 +11,6 @@ Precedent order:
     3. Cruise mode
 
 """
-if __name__=='__main__':
-    import stkengine
-    targListName = "TargetList.csv"
-    stkengine.CalculateAccess(targListName)
-        
-        
-    
-"""
 def SortAccess(accessFilename, outputFilename):
     accessFile = open(accessFilename,'r')
     line = True
@@ -38,7 +30,10 @@ def SortAccess(accessFilename, outputFilename):
         
     accessFile.close()
     outputFile.close()
+
+if __name__=='__main__':
+    import stkengine
+    targListName = "TargetList.csv"
+    stkengine.CalculateAccess(targListName)
     
-if __name__=="__main__":
     SortAccess("Access.csv","SortedAccess.csv")
-"""
