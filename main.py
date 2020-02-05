@@ -11,10 +11,9 @@ Precedent order:
     3. Cruise mode
 
 """
-"""
 if __name__=='__main__':
     import stkengine
-    targListName = sys.argv[sys.argv.index("--stk") + 1]
+    targListName = "TargetList.csv"
     stkengine.CalculateAccess(targListName)
         
         
@@ -42,3 +41,4 @@ def SortAccess(accessFilename, outputFilename):
     
 if __name__=="__main__":
     SortAccess("Access.csv","SortedAccess.csv")
+"""
