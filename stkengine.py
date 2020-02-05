@@ -27,7 +27,7 @@ def CalculateAccess(filename):
         for i in range(len(atDataList)):
             at = areatarget.AreaTarget(scene,
                                atDataList[i][0].replace(' ','_').replace('.','').replace('(','').replace(')',''),
-                               atDataList[i][1:4])
+                               atDataList[i][1:])
             ats.append(at)
     
         groundStation = areatarget.AreaTarget(scene,name='GroundStation',
