@@ -25,7 +25,6 @@ def CalculateAccess(filename):
 
         ats = []
         for i in range(len(atDataList)):
-            print(atDataList[i])
             at = areatarget.AreaTarget(scene,
                                atDataList[i][0].replace(' ','_').replace('.','').replace('(','').replace(')',''),
                                atDataList[i][1:])
