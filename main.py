@@ -32,8 +32,13 @@ def SortAccess(accessFilename, outputFilename):
     outputFile.close()
 
 if __name__=='__main__':
+    """
+    #uncomment when used with stk
     import stkengine
     targListName = "TargetList.csv"
     stkengine.CalculateAccess(targListName)
     
+    """
+    
     SortAccess("Access.csv","SortedAccess.csv")
+    
