@@ -79,7 +79,20 @@ class Toolbox:
                      "Nov": 11,
                      "Dec": 12}
         
-        if type(time1 == str):
+        revMonthDict = {1 : "Jan",
+                     2 : "Feb",
+                     3 : "Mar",
+                     4 : "Apr",
+                     5 : "May",
+                     6 : "Jun",
+                     7 : "Jul",
+                     8 : "Aug",
+                     9 : "Sep",
+                     10 : "Oct",
+                     11 : "Nov",
+                     12 : "Dec"}
+        
+        if type(time1) == str:
         
             time1 = str(time1)
             time1 = time1\
@@ -113,6 +126,21 @@ class Toolbox:
                 microsecond=int(microseconds1) * 1000)
         
             return timeObj1
+        
+        else:
+            year = str(time1.year)
+            month = revMonthDict[time1.month]
+            day = str(time1.day)
+            hour = str(time1.hour)
+            minute = str(time1.minute)
+            second = str(time1.second)
+            millisecond = str(int(float(time1.microsecond) / 1000.0))
+            
+            outputTime = "%s %s %s %s:%s:%s.%s" % (day,month,year,hour,minute,second,millisecond)
+            
+            return outputTime
+            
+
     
     @staticmethod
     def GetTimeDelta(timeArray):
