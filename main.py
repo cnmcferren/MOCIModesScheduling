@@ -1,5 +1,6 @@
 import scheduler
 import parse
+from toolbox import Toolbox
 
 
 if __name__=='__main__':
@@ -17,6 +18,4 @@ if __name__=='__main__':
     parse.SortAccess(filename,"SortedAccess.csv")
     access = scheduler.OpenAccess("SortedAccess.csv")
     actions = scheduler.Schedule(access)
-    for item in actions:
-        print(item)
-    
+    Toolbox.AccessToCSV(actions,'schedule.csv')
