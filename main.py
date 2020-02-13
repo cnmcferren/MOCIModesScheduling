@@ -1,15 +1,13 @@
-import sys
 import toolbox
 import scheduler
 
 """
 
-Used to return file containing mode scheduling.
+Sorts the access provided from STK and saves it to a separate file.
 
-Precedent order:
-    1. Data downlink mode
-    2. Imaging/Data Processing modes
-    3. Cruise mode
+Parameters:
+    accessFilename(str): Name of access file to be parsed
+    outputFilename(str): Name of the file to store the sorted access
 
 """
 def SortAccess(accessFilename, outputFilename):

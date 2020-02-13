@@ -3,31 +3,6 @@ import datetime
 
         
 class Toolbox:
-
-    @staticmethod
-    def ComputeCentroid(coordList):
-        
-        """
-        
-        Computes the coordinates for the center of an area target.
-        
-        Parameters:
-            parsedLine (str): Line parsed from target list csv.
-            
-        Returns:
-            midPoint (list): List containing name and coordinates of the middle of the area target.
-            
-        """
-        latSum = 0.0
-        lonSum = 0.0
-        for point in coordList:
-            latSum = latSum + float(point[0])
-            lonSum = lonSum + float(point[0])
-        
-        midLat = latSum/float(len(coordList))
-        midLon = lonSum/float(len(coordList))
-        
-        return (midLat,midLon)
     
     @staticmethod
     def CompareTime(time1,time2):       
@@ -139,34 +114,6 @@ class Toolbox:
             outputTime = "%s %s %s %s:%s:%s.%s" % (day,month,year,hour,minute,second,millisecond)
             
             return outputTime
-            
-
-    
-    @staticmethod
-    def GetTimeDelta(timeArray):
-        """
-        
-        Computes the time difference between to time instances from STK.
-        
-        Parameters:
-            timeArray (list): A list containting two time instances from STK.
-            Each instance is in format: 'DD MM YYYY HH:mm:SS.sss'
-            
-        Returns:
-            deltat (float): Time elapsed in seconds between the two instants.
-            
-        """
-        
-        timeObj1 = Toolbox.ConvertTime(str(timeArray[0]))
-        timeObj2 = Toolbox.ConvertTime(str(timeArray[1]))
-        
-        timeDiff = timeObj2 - timeObj1
-        print(timeDiff.days,timeDiff.seconds, timeDiff.microseconds)
-        deltat = float(timeDiff.days*86400.0) + \
-        float(timeDiff.seconds) + \
-        (0.001*float(timeDiff.microseconds))
-                    
-        return deltat
 
     @staticmethod
     def AddAccessArrays(*args):        
