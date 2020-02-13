@@ -65,6 +65,7 @@ class Toolbox:
             timeObj1 (datetime): The datetime objects.
         
         """
+
         monthDict = {"Jan": 1,
                      "Feb": 2,
                      "Mar": 3,
@@ -78,29 +79,31 @@ class Toolbox:
                      "Nov": 11,
                      "Dec": 12}
         
-        time1 = str(time1)
-        time1 = time1\
-        .replace('(','')\
-        .replace(')','')\
-        .replace("'",'')\
-        .replace(',','')
-        if time1[0] == 'u':
-            time1 = time1[1:]
+        if type(time1 == str):
         
-        splitTime1 = time1.split(' ')
-        day1 = splitTime1[0]
-        month1 = monthDict[splitTime1[1]]
-        year1 = splitTime1[2]
+            time1 = str(time1)
+            time1 = time1\
+                .replace('(','')\
+                .replace(')','')\
+                .replace("'",'')\
+                .replace(',','')
+            if time1[0] == 'u':
+                time1 = time1[1:]
         
-        clockTime1 = splitTime1[3]
+            splitTime1 = time1.split(' ')
+            day1 = splitTime1[0]
+            month1 = monthDict[splitTime1[1]]
+            year1 = splitTime1[2]
         
-        splitClockTime1 = clockTime1.split(':')
-        hours1 = splitClockTime1[0]
-        minutes1 = splitClockTime1[1]
-        seconds1 = splitClockTime1[2].split('.')[0]
-        microseconds1 = splitClockTime1[2].split('.')[1]
+            clockTime1 = splitTime1[3]
         
-        timeObj1 = datetime.datetime(
+            splitClockTime1 = clockTime1.split(':')
+            hours1 = splitClockTime1[0]
+            minutes1 = splitClockTime1[1]
+            seconds1 = splitClockTime1[2].split('.')[0]
+            microseconds1 = splitClockTime1[2].split('.')[1]
+        
+            timeObj1 = datetime.datetime(
                 int(year1),
                 int(month1),
                 int(day1),
@@ -109,7 +112,7 @@ class Toolbox:
                 second=int(seconds1),
                 microsecond=int(microseconds1) * 1000)
         
-        return timeObj1
+            return timeObj1
     
     @staticmethod
     def GetTimeDelta(timeArray):
