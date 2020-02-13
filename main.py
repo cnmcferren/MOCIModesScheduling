@@ -1,5 +1,6 @@
 import sys
 import toolbox
+import scheduler
 
 """
 
@@ -32,11 +33,18 @@ def SortAccess(accessFilename, outputFilename):
     outputFile.close()
 
 if __name__=='__main__':
+    """
     #uncomment when used with stk
     import stkengine
     targListName = "TargetList.csv"
     stkengine.CalculateAccess(targListName)
     
+    """
+    
     
     SortAccess("Access.csv","SortedAccess.csv")
+    access = scheduler.OpenAccess("SortedAccess.csv")
+    actions = scheduler.Schedule(access)
+    for item in actions:
+        print(item)
     
