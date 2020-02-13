@@ -17,6 +17,7 @@ Scheduling follows the following precedent:
 1. Data downlink
 2. Imaging + data processing
 3. Cruise mode
+
 This means that data downlink is always chosen if the opportunity is given.
 With data downlink opportunities chosen, the access is parsed and chosen off
 the following criteria: if the time of the access plus 30 minutes for a transition
