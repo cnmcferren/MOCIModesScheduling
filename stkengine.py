@@ -9,18 +9,19 @@ list that is provided and the Athens Ground Station
 
 Parameters:
     filename(str): The target list to be used
+    time(str): Time span to use
     
 Returns:
     0 (int): Successful execution
     1 (int): Failed execution
 
 """
-def CalculateAccess(filename):
+def CalculateAccess(filename, time):
     try:
         atDataList = parse.ParseTargetList(filename)
 
         app = application.Application()
-        scene = scenario.Scenario(app, 'Scheduling', '+24hrs')
+        scene = scenario.Scenario(app, 'Scheduling', time)
         sat = satellite.Satellite(scene, 'MOCI', 25544)
 
         ats = []
